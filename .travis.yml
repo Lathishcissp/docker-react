@@ -1,0 +1,9 @@
+sudo: required
+service:
+ - docker
+
+before_install:
+ - docker build -t kumar/docker-react -f deckerfile.dev .
+
+script: 
+ - docker run kumar/docker-react npm run test -- --coverage
